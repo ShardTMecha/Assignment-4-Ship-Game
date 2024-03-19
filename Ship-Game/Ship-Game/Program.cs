@@ -6,12 +6,12 @@ namespace ShipGame
     internal class Program
     {
         // If you need variables in the Program class (outside functions), you must mark them as static
-        static string title = "Game Title";
+        static string title = "Ship Game";
 
         static void Main(string[] args)
         {
             // Create a window to draw to. The arguments define width and height
-            Raylib.InitWindow(800, 600, title);
+            Raylib.InitWindow(1620, 1080, title);
             // Set the target frames-per-second (FPS)
             Raylib.SetTargetFPS(60);
 
