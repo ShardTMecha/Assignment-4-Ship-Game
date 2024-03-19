@@ -1,6 +1,6 @@
 Game Description:
 
 Authors (GitID) and Work:
-Jennifer Rodriguez (Seshat02):
-Stephan bunjevac (ShardTMecha):
-Damien Kavanagh-Warren (MinnieMochi):
+1- Jennifer Rodriguez (Seshat02):
+2- Stephan bunjevac (ShardTMecha):
+3- Damien Kavanagh-Warren (MinnieMochi):
