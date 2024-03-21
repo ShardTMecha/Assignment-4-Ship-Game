@@ -74,6 +74,14 @@ namespace Ship_Game
             //Small asteroid Drawing
             Raylib.DrawCircleV(asteroidPosition1, asteroidRadius1, color);
         }
+    public void Collision()
+    {
+        //Check collision with big asteroids
+        //float radii1 = asteroidRadius1 + play.radius;
+        //bool overlapBigAst = Vector2.Distance(asteroidPosition1, player stats) <= radii1;
 
+        //Checks collision with small asteroids
+        //float radii2 = asteroidRadius2 + play.radius;
+        //bool overlapSmallAst = Vector2.Distance(asteroidPosition2, players stats) <= radii2;
     }
 }
