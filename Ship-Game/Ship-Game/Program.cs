@@ -7,9 +7,11 @@ namespace Ship_Game
     {
         static string title = "Ship Game";
 
+        public static bool gameOver = false;
+
         static Asteroids[] asteroids;
         static int numAsteroidsSpawning = 5;
-        static int asteroidount = 0;
+        static int asteroidCount = 0;
         static int maxNumAsteroids = 50;
 
         static void Main(string[] args)
@@ -39,14 +41,17 @@ namespace Ship_Game
             for (int i = 0; i <= numAsteroidsSpawning; i++)
             {
                 asteroids[i] = new Asteroids();
-                asteroidount++;
+                asteroids[i].Random();
+                asteroidCount++;
             }
         }
         static void Update()
         {
-            foreach (Asteroids asteroid in asteroids)
+            //Draw and add movement to the spawing asteroids
+            for (int i = 0; i < asteroidCount; i++)
             {
-                asteroid.DrawAsteroids();
+                asteroids[i].DrawAsteroids();
+                asteroids[i].Movement();
             }
         }
        

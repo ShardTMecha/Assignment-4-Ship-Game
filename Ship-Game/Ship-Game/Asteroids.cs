@@ -4,54 +4,42 @@ internal class Asteroids
 {  
     static Random rng = new Random();
 
+    static int[] radii = { 15, 25 };
+
     //General values
-    Vector2 asteroidVelocity;
-    Vector2 initialPosition;
+    int asteroidVelocity = 200;    
     Color color = Color.Black;
+    public Vector2 position;
+    public int radius;
 
-    //Big asteroid values
-    Vector2 asteroidPosition1;
-    int asteroidRadius1 = 25;
-    int bigAsteroidAmount;
 
-    //Small asteroid values
-    Vector2 asteroidPosition2;
-    int asteroidRadius2 = 15;
-    int smallAsteroidAmount;
+    public Asteroids()
+    {
    
-    ////Random position generator
-    //public void Random()
-    //{
+    }
         
+    //Random position generator
+    public void Random()
+    {
+        position = new Vector2(1600, (rng.Next(0, 32) * 50));
         
-    //}
-
-    //Check collision between player and asteroids       
-   
+        int radiiIndex = rng.Next(radii.Length);
+        radius = radii[radiiIndex];
+    }
     public void DrawAsteroids()
     {
-        asteroidRadius1 = 25;
-        asteroidRadius2 = 15;
-        //Random Y for big asteroids
-        asteroidPosition1 = new Vector2(800, (rng.Next(Raylib.GetScreenHeight(), Raylib.GetScreenWidth()) * 50));
-        //Random Y for small asteroids
-        asteroidPosition2 = new Vector2(800, (rng.Next(Raylib.GetScreenHeight(), Raylib.GetScreenWidth()) * 50));
-
-        //Big asteroid Drawing
-        Raylib.DrawCircleV(asteroidPosition1, asteroidRadius1, color);
-
-        //Small asteroid Drawing
-        Raylib.DrawCircleV(asteroidPosition2, asteroidRadius2, color);
+        Raylib.DrawCircleV(position, radius, color);
     }
-    public void Collision()
-    {
-        //Check collision with big asteroids
-        //float radii1 = asteroidRadius1 + play.radius;
-        //bool overlapBigAst = Vector2.Distance(asteroidPosition1, player stats) <= radii1;
 
-        //Checks collision with small asteroids
-        //float radii2 = asteroidRadius2 + play.radius;
-        //bool overlapSmallAst = Vector2.Distance(asteroidPosition2, players stats) <= radii2;
+    //Check collision between player and asteroids    
+    //public void Collision(Player_test play)
+    //{       
+    //    float radii1 = radius + play.playerRadius;
+    //    bool overlapBigAst = Vector2.Distance(position, play.playerPosition) <= radii1;
+    //}
+    public void Movement()
+    {
+        position.X -= asteroidVelocity * Raylib.GetFrameTime(); // make asteroids move across the screen
     }
 
 }
