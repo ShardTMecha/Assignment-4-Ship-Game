@@ -9,6 +9,9 @@ namespace Ship_Game
 
         public static bool gameOver = false;
 
+        static int screenHeight = Raylib.GetScreenHeight();
+        static int screenWidht = Raylib.GetScreenWidth();
+
         static Asteroids[] asteroids;
         static int numAsteroidsSpawning = 5;
         static int asteroidCount = 0;
@@ -47,12 +50,25 @@ namespace Ship_Game
         }
         static void Update()
         {
+            if (gameOver)
+            {
+                int textPosX = screenWidht / 2;
+                int textPosY = screenHeight / 2;
+
+                Raylib.ClearBackground(Color.RayWhite);
+                Raylib.EndDrawing();
+                Raylib.DrawText("GAME OVER", textPosX, textPosY, 100, Color.Red);
+            }
+            else
+            {
             //Draw and add movement to the spawing asteroids
             for (int i = 0; i < asteroidCount; i++)
             {
                 asteroids[i].DrawAsteroids();
                 asteroids[i].Movement();
             }
+            }
+            
         }
        
 

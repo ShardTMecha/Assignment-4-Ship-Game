@@ -36,6 +36,11 @@ internal class Asteroids
     //{       
     //    float radii1 = radius + play.playerRadius;
     //    bool overlapBigAst = Vector2.Distance(position, play.playerPosition) <= radii1;
+
+    //    if (overlapBigAst)
+    //    {
+    //        Program.gameOver = true;
+    //    }
     //}
     public void Movement()
     {
