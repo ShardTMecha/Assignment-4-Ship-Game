@@ -7,19 +7,18 @@ namespace Ship_Game
     {
         static string title = "Ship Game";
 
+        static Random rng = new Random();
         public static bool gameOver = false;
 
-        static int screenHeight = Raylib.GetScreenHeight();
-        static int screenWidht = Raylib.GetScreenWidth();
 
         static Asteroids[] asteroids;
-        static int numAsteroidsSpawning = 5;
+        
         static int asteroidCount = 0;
         static int maxNumAsteroids = 50;
 
         static void Main(string[] args)
         {
-            Raylib.InitWindow(1620, 1080, title);
+            Raylib.InitWindow(1620, 1100, title);
             Raylib.SetTargetFPS(60);
 
             Setup();
@@ -41,10 +40,9 @@ namespace Ship_Game
         {
             asteroids = new Asteroids[maxNumAsteroids];
 
-            for (int i = 0; i <= numAsteroidsSpawning; i++)
+            for (int i = 0; i < asteroids.Length; i++)
             {
-                asteroids[i] = new Asteroids();
-                asteroids[i].Random();
+                asteroids[i] = new Asteroids(new Vector2(1920 + (200 * i), (rng.Next(0, 22) * 50)));               
                 asteroidCount++;
             }
         }
@@ -52,12 +50,7 @@ namespace Ship_Game
         {
             if (gameOver)
             {
-                int textPosX = screenWidht / 2;
-                int textPosY = screenHeight / 2;
-
-                Raylib.ClearBackground(Color.RayWhite);
-                Raylib.EndDrawing();
-                Raylib.DrawText("GAME OVER", textPosX, textPosY, 100, Color.Red);
+                Raylib.DrawText("GAME OVER", 810, 550, 100, Color.Red);
             }
             else
             {

@@ -6,15 +6,20 @@ internal class Asteroids
 
     static int[] radii = { 15, 25 };
 
+    static float aceleration = 1f;
     //General values
-    int asteroidVelocity = 200;    
+    float asteroidVelocity = 200f;   
+    
     Color color = Color.Black;
     public Vector2 position;
     public int radius;
 
 
-    public Asteroids()
+    public Asteroids(Vector2 pos)
     {
+        position = pos;
+        int radiiIndex = rng.Next(radii.Length);
+        radius = radii[radiiIndex];
    
     }
         
@@ -44,7 +49,9 @@ internal class Asteroids
     //}
     public void Movement()
     {
+        asteroidVelocity += aceleration;
         position.X -= asteroidVelocity * Raylib.GetFrameTime(); // make asteroids move across the screen
+        
     }
 
 }
