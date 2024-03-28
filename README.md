@@ -1,7 +1,7 @@
 Game Description:
 
 Authors (GitID) and Work:
-1- Jennifer Rodriguez (Seshat02):
-2- Stephan Bunjevac (ShardTMecha):
-3- Damien Kavanagh-Warren (MinnieMochi): Side-Scrolling Space Background
-4- Varsha Vinod (Varsha-vk05): score
+- Jennifer Rodriguez (Seshat02): Asteroids movement and collision.
+- Stephan Bunjevac (ShardTMecha): Ship / controlls
+- Damien Kavanagh-Warren (MinnieMochi): Side-Scrolling Space Background
+- Varsha Vinod (Varsha-vk05): score
