@@ -4,21 +4,19 @@ internal class Asteroids
 {  
     static Random rng = new Random();
 
-    static int[] radii = { 15, 25 };
-
     static float aceleration = 1f;
-    //General values
     float asteroidVelocity = 200f;   
     
+    //Asteroid values 
+    static int[] radii = { 15, 25 };
     Color color = Color.Black;
     public Vector2 position;
     public int radius;
 
-
     public Asteroids(Vector2 pos)
     {
         position = pos;
-        int radiiIndex = rng.Next(radii.Length);
+        int radiiIndex = rng.Next(radii.Length);//Random radius
         radius = radii[radiiIndex];
    
     }

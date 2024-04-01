@@ -14,7 +14,7 @@ namespace Ship_Game
         static Asteroids[] asteroids;
         
         static int asteroidCount = 0;
-        static int maxNumAsteroids = 50;
+        static int maxNumAsteroids = 500;//Amount of asteroids the array contains
 
         static void Main(string[] args)
         {
@@ -50,7 +50,7 @@ namespace Ship_Game
         {
             if (gameOver)
             {
-                Raylib.DrawText("GAME OVER", 810, 550, 100, Color.Red);
+                Raylib.DrawText("GAME OVER", 700, 550, 100, Color.Red);
             }
             else
             {
