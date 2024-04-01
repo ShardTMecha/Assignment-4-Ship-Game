@@ -5,11 +5,15 @@ namespace Ship_Game
 {
     internal class Program
     {
+       
         static string title = "Ship Game";
 
         static Random rng = new Random();
-        public static bool gameOver = false;
 
+        public static bool gameOver = false;
+        static int score = 0;
+        static bool isAlive = true;
+        static int frameCount = 0;
 
         static Asteroids[] asteroids;
         
@@ -18,10 +22,12 @@ namespace Ship_Game
 
         static void Main(string[] args)
         {
-            Raylib.InitWindow(1620, 1100, title);
+            Raylib.InitWindow(1920, 1100, title);
             Raylib.SetTargetFPS(60);
 
             Setup();
+
+            
 
             while (!Raylib.WindowShouldClose())
             {
@@ -38,6 +44,8 @@ namespace Ship_Game
         }
         static void Setup()
         {
+            
+
             asteroids = new Asteroids[maxNumAsteroids];
 
             for (int i = 0; i < asteroids.Length; i++)
@@ -54,16 +62,37 @@ namespace Ship_Game
             }
             else
             {
-            //Draw and add movement to the spawing asteroids
-            for (int i = 0; i < asteroidCount; i++)
+                Raylib.DrawText($"Score: {score}", Raylib.GetScreenWidth() - 150, 10, 20, Color.Black);
+            const int framesPer1Second = 100;
+
+            if (isAlive)
+            {
+               
+               
+                frameCount++;
+
+               //Framecount reaches specified duration then score increases
+                if (frameCount >= framesPer1Second)
+                {
+                    //Increases score
+                    score++;
+                    //Resets frame count
+                    frameCount = 0;
+                }
+            }
+                //Draw and add movement to the spawing asteroids
+                for (int i = 0; i < asteroidCount; i++)
             {
                 asteroids[i].DrawAsteroids();
                 asteroids[i].Movement();
             }
-            }
-            
         }
        
+
+           
+        }
+
+
 
     }
 }
