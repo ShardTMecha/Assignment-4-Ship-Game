@@ -6,7 +6,7 @@ namespace ExampleProject
     internal class Program
     {
        
-        static string title = "Space idk";
+        static string title = "Ship Game";
         static int score = 0;
         static bool isAlive = true;
         static int frameCount = 0;
@@ -32,7 +32,7 @@ namespace ExampleProject
                
                 Update();
 
-                // score
+                // Draw the score
                 Raylib.DrawText($"Score: {score}", Raylib.GetScreenWidth() - 150, 10, 20, Color.White);
 
                
@@ -49,7 +49,8 @@ namespace ExampleProject
 
         static void Update()
         {
-            const int framesPer5Seconds = 100;
+            //Defining the duration
+            const int framesPer1Second = 100;
 
             if (isAlive)
             {
@@ -57,10 +58,12 @@ namespace ExampleProject
                
                 frameCount++;
 
-               
-                if (frameCount >= framesPer5Seconds)
+               //Framecount reaches specified duration then score increases
+                if (frameCount >= framesPer1Second)
                 {
+                    //Increases score
                     score++;
+                    //Resets frame count
                     frameCount = 0;
                 }
             }
