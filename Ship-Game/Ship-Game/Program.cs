@@ -11,7 +11,7 @@ namespace ShipGame
         static void Main(string[] args)
         {
             
-            Raylib.InitWindow(1620, 1080, title);
+            Raylib.InitWindow(1920, 1080, title);
            
             Raylib.SetTargetFPS(60);
 
